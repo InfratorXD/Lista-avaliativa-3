@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-  char romanos[12];
+  char romanos[13];
   int i;
   int valor_antes = 0;
   int valor_atual = 0;
