@@ -2,19 +2,15 @@
 #include <ctype.h>
 #include <string.h>
 
-int Placas(const char *placa) {
-    if (isalpha(placa[0]) && isalpha(placa[1]) && isalpha(placa[2]) &&
-        placa[3] == '-' &&
-        isdigit(placa[4]) && isdigit(placa[5]) && isdigit(placa[6]) && isdigit(placa[7]) &&
-        placa[8] == '\0') {
-        return 1;
+int Placas(char *placa) {
+
+    if (strlen(placa) == 8 && isalpha(placa[0]) && isalpha(placa[1]) && isalpha(placa[2]) && placa[3] == '-' && isdigit(placa[4]) && isdigit(placa[5]) && isdigit(placa[6]) && isdigit(placa[7])) {
+    return 1;
     }
 
-    if (isalpha(placa[0]) && isalpha(placa[1]) && isalpha(placa[2]) &&
-        !isalpha(placa[3]) &&
-        isdigit(placa[4]) && isalpha(placa[5]) && isdigit(placa[6]) &&
-        placa[7] == '\0') {
-        return 1;
+    
+    if (strlen(placa) == 7 && isalpha(placa[0]) && isalpha(placa[1]) && isalpha(placa[2]) && isdigit(placa[3]) && isalpha(placa[4]) && isdigit(placa[5]) && isdigit(placa[6])) {
+    return 1;
     }
 
     return 0;
@@ -29,8 +25,48 @@ int main() {
 
     fgets(dias, sizeof(dias), stdin);
     dias[strcspn(dias, "\n")] = '\0';
-
     
+        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'e' && dias[2] == 'g')) {
+        printf("Placa invalida\n");
+        printf("Dia da semana invalido\n");
+            return 0;
+        }
+
+        if(!Placas(placa)&&(dias[0]== 't' && dias[1] == 'e' && dias[2] == 'r')) {
+        printf("Placa invalida\n");
+        printf("Dia da semana invalido\n");
+            return 0;
+        }
+        if(!Placas(placa)&&(dias[0]== 'q' && dias[1] == 'u' && dias[2] == 'a')){
+            printf("Placa invalida\n");
+            printf("Dia da semana invalido\n");
+            return 0;
+        }
+        if(!Placas(placa)&&(dias[0]== 'q' && dias[1] == 'u' && dias[2] == 'i')){
+            printf("Placa invalida\n");
+            printf("Dia da semana invalido\n");
+            return 0;
+        }
+        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'e' && dias[2] == 'x')){
+            printf("Placa invalida\n");
+            printf("Dia da semana invalido\n");
+            return 0;
+        }
+        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'a' && dias[2] == 'b')){
+            printf("Placa invalida\n");
+            printf("Dia da semana invalido\n");
+            return 0;
+        }
+        if(!Placas(placa)&&(dias[0]== 'd' && dias[1] == 'o' && dias[2] == 'm')){
+            printf("Placa invalida\n");
+            printf("Dia da semana invalido\n");
+            return 0;
+        }
+
+    if(!Placas(placa)) {
+        printf("Placa invalida\n");
+        return 1;
+    }
         if((dias[0]== 'S' && dias[1] == 'E' && dias[2] == 'G') && (placa[7] == '0' || placa[7] == '1')){
             printf("%s nao pode circular segunda-feira\n",placa);
             return 0;
@@ -117,46 +153,6 @@ if ((dias[0] == 'S' && dias[1] == 'E' && dias[2] == 'X') && (placa[6] != '8' && 
     printf("%s pode circular sexta-feira\n", placa);
     return 0;
 }
-        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'e' && dias[2] == 'g')) {
-        printf("Placa invalida\n");
-        printf("Dia da semana invalido\n");
-            return 0;
-        }
-
-        if(!Placas(placa)&&(dias[0]== 't' && dias[1] == 'e' && dias[2] == 'r')) {
-        printf("Placa invalida\n");
-        printf("Dia da semana invalido\n");
-            return 0;
-        }
-        if(!Placas(placa)&&(dias[0]== 'q' && dias[1] == 'u' && dias[2] == 'a')){
-            printf("Placa invalida\n");
-            printf("Dia da semana invalido\n");
-            return 0;
-        }
-        if(!Placas(placa)&&(dias[0]== 'q' && dias[1] == 'u' && dias[2] == 'i')){
-            printf("Placa invalida\n");
-            printf("Dia da semana invalido\n");
-            return 0;
-        }
-        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'e' && dias[2] == 'x')){
-            printf("Placa invalida\n");
-            printf("Dia da semana invalido\n");
-            return 0;
-        }
-        if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'a' && dias[2] == 'b')){
-            printf("Placa invalida\n");
-            printf("Dia da semana invalido\n");
-            return 0;
-        }
-        if(!Placas(placa)&&(dias[0]== 'd' && dias[1] == 'o' && dias[2] == 'm')){
-            printf("Placa invalida\n");
-            printf("Dia da semana invalido\n");
-            return 0;
-        }
-    if(!Placas(placa)) {
-        printf("Placa invalida\n");
-        return 1;
-    }
         return 0;
     }
         
