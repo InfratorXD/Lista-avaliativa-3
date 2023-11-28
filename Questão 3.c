@@ -19,12 +19,16 @@ int Placas(char *placa) {
     return 0;
 }
 
+int validarDiaSemana(char *dia) {
+    char *diasSemana[] = {"SEGUNDA-FEIRA", "TERCA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SABADO", "DOMINGO"};
 
-
-void toUpperString(char *str) {
-    for (int i = 0; str[i]; i++) {
-        str[i] = toupper((unsigned char)str[i]);
+    for (int i = 0; i < 7; i++) {
+        if (strcmp(dia, diasSemana[i]) == 0) {
+            return 1; 
+        }
     }
+
+    return 0; 
 }
 
 int main() {
@@ -42,7 +46,11 @@ int main() {
         return 0;
     }
 
-    //toUpperString(dias);
+  if (!validarDiaSemana(dias)) {
+        printf("Dia da semana invalido\n");
+        return 0;
+    }
+
     
         if(!Placas(placa)&&(dias[0]== 's' && dias[1] == 'e' && dias[2] == 'g')) {
         printf("Placa invalida\n");
